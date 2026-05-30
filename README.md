@@ -1,5 +1,7 @@
 # solo-kingdom Homebrew Tap
 
+**语言 / Language：** 中文 · [English](README.en.md)
+
 [solo-kingdom](https://github.com/solo-kingdom) 团队的官方 Homebrew Tap，用于通过 Homebrew 安装团队开源工具。
 
 ## 安装
