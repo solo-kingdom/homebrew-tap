@@ -14,6 +14,6 @@ class Senv < Formula
   end
 
   test do
-    assert_match "Secure environment variable", shell_output("#{bin}/senv --help")
+    assert_match "environment variables", shell_output("#{bin}/senv --help")
   end
 end

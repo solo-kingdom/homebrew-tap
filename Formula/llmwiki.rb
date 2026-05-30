@@ -12,7 +12,7 @@ class Llmwiki < Formula
 
   def install
     cd "web" do
-      system "npm", "install", *std_npm_args
+      system "npm", "install", *std_npm_args(prefix: false)
       system "npm", "run", "build"
     end
 
