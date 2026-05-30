@@ -26,6 +26,6 @@ class Llmwiki < Formula
   end
 
   test do
-    assert_match "LLM Wiki", shell_output("#{bin}/llmwiki --help")
+    assert_match "structured wiki", shell_output("#{bin}/llmwiki --help")
   end
 end
