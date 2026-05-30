@@ -12,7 +12,7 @@ class Mdserve < Formula
 
   def install
     cd "web" do
-      system "npm", "install", "--no-fund", "--no-audit"
+      system "npm", "install", *std_npm_args
       system "npm", "run", "build"
     end
 
