@@ -1,5 +1,5 @@
 class Llmwiki < Formula
-  desc "LLM Wiki — personal knowledge workspace"
+  desc "Personal knowledge workspace"
   homepage "https://github.com/solo-kingdom/llmwiki"
   url "https://github.com/solo-kingdom/llmwiki/archive/2d2a350ed5cf75eb1c3639c9506b2b0c0421bded.tar.gz"
   version "0.1.0"
@@ -12,7 +12,7 @@ class Llmwiki < Formula
 
   def install
     cd "web" do
-      system "npm", "install", "--no-fund", "--no-audit"
+      system "npm", "install", *std_npm_args
       system "npm", "run", "build"
     end
 

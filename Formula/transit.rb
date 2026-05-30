@@ -1,7 +1,7 @@
 class Transit < Formula
   include Language::Python::Virtualenv
 
-  desc "A secure file transit service for multi-region network connectivity"
+  desc "Secure file transit service for multi-region network connectivity"
   homepage "https://github.com/solo-kingdom/transit"
   url "https://github.com/solo-kingdom/transit/archive/1faf25a3a47c23c00c1d96d6bde48309363cff59.tar.gz"
   version "0.1.0"
@@ -18,7 +18,7 @@ class Transit < Formula
       libexec/"bin/uvicorn",
       "transit.main:app",
       "--host", "0.0.0.0",
-      "--port", "9200",
+      "--port", "9200"
     )
   end
 
