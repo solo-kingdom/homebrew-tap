@@ -16,13 +16,12 @@ class Transit < Formula
 
     (bin/"transit-server").write_env_script(
       libexec/"bin/uvicorn",
-      "transit.main:app",
-      "--host", "0.0.0.0",
-      "--port", "9200"
+      ["transit.main:app", "--host", "0.0.0.0", "--port", "9200"],
+      {},
     )
   end
 
   test do
-    assert_match version.to_s, shell_output("#{libexec}/bin/python -c 'import transit; print(\"ok\")'")
+    assert_equal "ok", shell_output("#{libexec}/bin/python -c 'import transit; print(\"ok\")'").strip
   end
 end
