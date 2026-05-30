@@ -12,6 +12,8 @@ brew tap solo-kingdom/tap
 brew install solo-kingdom/tap/senv
 brew install solo-kingdom/tap/llmwiki
 brew install solo-kingdom/tap/transit
+brew install solo-kingdom/tap/grepom
+brew install solo-kingdom/tap/mdserve
 ```
 
 也可以一步安装（会自动添加 tap）：
@@ -27,6 +29,8 @@ brew install solo-kingdom/tap/senv
 | [senv](Formula/senv.rb) | 安全的环境变量与配置管理 CLI | [solo-kingdom/senv](https://github.com/solo-kingdom/senv) |
 | [llmwiki](Formula/llmwiki.rb) | LLM 知识库工作区 CLI | [solo-kingdom/llmwiki](https://github.com/solo-kingdom/llmwiki) |
 | [transit](Formula/transit.rb) | 跨区域文件中转服务 | [solo-kingdom/transit](https://github.com/solo-kingdom/transit) |
+| [grepom](Formula/grepom.rb) | Git 仓库批量管理 CLI | [sunzhenkai/grepom](https://github.com/sunzhenkai/grepom) |
+| [mdserve](Formula/mdserve.rb) | Markdown 实时预览服务 | [sunzhenkai/mdserve](https://github.com/sunzhenkai/mdserve) |
 
 ## Brewfile 示例
 
@@ -35,6 +39,8 @@ tap "solo-kingdom/tap"
 brew "senv"
 brew "llmwiki"
 brew "transit"
+brew "grepom"
+brew "mdserve"
 ```
 
 ## 维护
