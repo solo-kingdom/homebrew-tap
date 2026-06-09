@@ -4,7 +4,7 @@ class Transit < Formula
   desc "Secure file transit service for multi-region network connectivity"
   homepage "https://github.com/solo-kingdom/transit"
   url "https://github.com/solo-kingdom/transit/archive/1faf25a3a47c23c00c1d96d6bde48309363cff59.tar.gz"
-  version "0.1.0"
+  version "1faf25a3a47c23c00c1d96d6bde48309363cff59"
   sha256 "dcf2206c6d5ca2785a59f0a9dce2175e859c7ef7d68542ca3d00c7e094570d8c"
   license "Apache-2.0"
   head "https://github.com/solo-kingdom/transit.git", branch: "main"

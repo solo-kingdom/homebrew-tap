@@ -1,9 +1,9 @@
 class Llmwiki < Formula
   desc "Personal knowledge workspace"
   homepage "https://github.com/solo-kingdom/llmwiki"
-  url "https://github.com/solo-kingdom/llmwiki/archive/2d2a350ed5cf75eb1c3639c9506b2b0c0421bded.tar.gz"
+  url "https://github.com/solo-kingdom/llmwiki/archive/c443d56bb68a9ebeff5bddccab783eb45078fbc0.tar.gz"
   version "0.1.0"
-  sha256 "77459bde1999089558cf3684fa24efcc41096811dd7bcd8a5973174aa561c2a1"
+  sha256 "0dc39d3d3316a083aad110f4b208d4acbc9df40fdf47fca685e126614a4604e9"
   license "MIT"
   head "https://github.com/solo-kingdom/llmwiki.git", branch: "main"
 
@@ -19,7 +19,7 @@ class Llmwiki < Formula
     ldflags = %W[
       -s -w
       -X main.Version=#{version}
-      -X main.Commit=2d2a350
+      -X main.Commit=c443d56
       -X main.BuildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/llmwiki/"
