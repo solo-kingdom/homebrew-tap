@@ -47,6 +47,34 @@ brew "mdserve"
 
 ## Maintenance
 
+### Updating Formula Versions
+
+Use `scripts/bump-formula.py` to pull the latest upstream release from GitHub, update `url` and `sha256` (and `llmwiki` commit ldflags), and create a git commit.
+
+Resolution order: latest release → latest tag → default branch HEAD.
+
+```bash
+# Update one formula and commit
+scripts/bump-formula.py senv
+
+# Pin a release tag
+scripts/bump-formula.py senv --ref v0.2.0
+
+# Pin a commit and version
+scripts/bump-formula.py llmwiki --version 0.2.0 --ref abc1234
+
+# Update all formulae
+scripts/bump-formula.py --all
+
+# Update files only, no commit
+scripts/bump-formula.py senv --no-commit
+
+# Preview changes
+scripts/bump-formula.py senv --dry-run
+```
+
+If the ref is a commit and `--version` is omitted, the existing `version` field in the formula is kept.
+
 ### Local Testing
 
 ```bash

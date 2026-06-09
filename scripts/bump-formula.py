@@ -69,9 +69,15 @@ def normalize_version(raw: str) -> str:
     return raw.removeprefix("v").removeprefix("V")
 
 
+def is_commit_ref(ref: str) -> bool:
+    return bool(re.fullmatch(r"[0-9a-f]{7,40}", ref, re.I))
+
+
 def resolve_version(explicit: str | None, ref: str) -> str | None:
     if explicit:
         return explicit
+    if is_commit_ref(ref):
+        return None
     if re.match(r"^v?[0-9]", ref):
         return normalize_version(ref)
     return None
