@@ -24,6 +24,15 @@ You can also install in one step (the tap is added automatically):
 brew install solo-kingdom/tap/senv
 ```
 
+## Updating
+
+```bash
+brew update
+brew upgrade solo-kingdom/tap/grepom
+```
+
+Replace `grepom` with another formula name to update a different tool.
+
 ## Available Formulae
 
 | Formula | Description | Upstream |
@@ -49,15 +58,21 @@ brew "mdserve"
 
 ### Updating Formula Versions
 
-Use `scripts/bump-formula.py` to pull the latest upstream release from GitHub, update `url` and `sha256` (and `llmwiki` commit ldflags), and create a git commit.
+Use `scripts/bump-formula.py` to pull the latest upstream release from GitHub, update `url`, `version`, and `sha256` (and `llmwiki` commit ldflags), and create a git commit.
 
-Resolution order: latest release → latest tag → default branch HEAD.
+Default behavior:
+
+1. If the upstream default branch HEAD already has a semver tag, use it
+2. If HEAD has new commits but no tag, take the higher of the formula version and existing upstream tags, bump the patch version, then create and push a tag to the upstream repo via **SSH** (`git@github.com:...`)
+3. Update the formula to the new tag
+
+Requires a configured GitHub SSH key with push access to the upstream repositories.
 
 ```bash
-# Update one formula and commit
+# Update one formula (auto-tag upstream when needed)
 scripts/bump-formula.py senv
 
-# Pin a release tag
+# Pin a tag manually (skip auto-tagging)
 scripts/bump-formula.py senv --ref v0.2.0
 
 # Pin a commit and version
@@ -66,14 +81,12 @@ scripts/bump-formula.py llmwiki --version 0.2.0 --ref abc1234
 # Update all formulae
 scripts/bump-formula.py --all
 
-# Update files only, no commit
-scripts/bump-formula.py senv --no-commit
+# Update formula files only, without pushing tags upstream
+scripts/bump-formula.py senv --no-tag-push --no-commit
 
 # Preview changes
 scripts/bump-formula.py senv --dry-run
 ```
-
-If the ref is a commit and `--version` is omitted, the existing `version` field in the formula is kept.
 
 ### Local Testing
 
