@@ -1,9 +1,9 @@
 class Senv < Formula
   desc "Secure environment variable and configuration manager"
   homepage "https://github.com/solo-kingdom/senv"
-  url "https://github.com/solo-kingdom/senv/archive/f67242ce56d77e2014c678c1c5bfd2189f00c06c.tar.gz"
-  version "0.1.0"
-  sha256 "486fd97bbc67c294b976750bd072fff4a1e06ab34212bdc50a2ffc8c59076890"
+  url "https://github.com/solo-kingdom/senv/archive/v0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "29dd347e0eb549ae2716993ef8d6da87ecf2750affeba4a21dfed90bfb2e2d14"
   license "MIT"
   head "https://github.com/solo-kingdom/senv.git", branch: "main"
 

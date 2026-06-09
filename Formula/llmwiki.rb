@@ -1,9 +1,9 @@
 class Llmwiki < Formula
   desc "Personal knowledge workspace"
   homepage "https://github.com/solo-kingdom/llmwiki"
-  url "https://github.com/solo-kingdom/llmwiki/archive/c443d56bb68a9ebeff5bddccab783eb45078fbc0.tar.gz"
-  version "0.1.0"
-  sha256 "0dc39d3d3316a083aad110f4b208d4acbc9df40fdf47fca685e126614a4604e9"
+  url "https://github.com/solo-kingdom/llmwiki/archive/v0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "78f43272d49b2f7d4e14727ba1d09a81026548f6a34adc42389c0c519d071e18"
   license "MIT"
   head "https://github.com/solo-kingdom/llmwiki.git", branch: "main"
 

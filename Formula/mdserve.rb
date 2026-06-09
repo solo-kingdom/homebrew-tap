@@ -1,9 +1,9 @@
 class Mdserve < Formula
   desc "Real-time Markdown file server with web interface"
   homepage "https://github.com/sunzhenkai/mdserve"
-  url "https://github.com/sunzhenkai/mdserve/archive/ce2bb79403c3566b145ad81e0da4e0258eb65d26.tar.gz"
-  version "0.1.0"
-  sha256 "1a6ffe6118140bce3064cc12ce92dedf11769ce0beda3ae1a4f3f12728f19f9f"
+  url "https://github.com/sunzhenkai/mdserve/archive/v0.1.1.tar.gz"
+  version "0.1.1"
+  sha256 "befd4a7df6c9a53449a35670211c634993af9224611253ea81c8c6226c729857"
   license "MIT"
   head "https://github.com/sunzhenkai/mdserve.git", branch: "main"
 
