@@ -1,9 +1,9 @@
 class Grepom < Formula
   desc "Git Repository Orchestrator & Manager"
   homepage "https://github.com/sunzhenkai/grepom"
-  url "https://github.com/sunzhenkai/grepom/archive/v0.1.2.tar.gz"
-  version "0.1.2"
-  sha256 "38bb041da3a1d1b3f4b8e40a6b810fa36786952e51ad0f6d8d8ab8fa6393f77e"
+  url "https://github.com/sunzhenkai/grepom/archive/v0.1.3.tar.gz"
+  version "0.1.3"
+  sha256 "a6e01414ea0d6ef8321b9bf46a5b2be33ee3e7568510bfab17a419e3191dc341"
   license "MIT"
   head "https://github.com/sunzhenkai/grepom.git", branch: "master"
 
