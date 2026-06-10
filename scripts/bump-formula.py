@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""更新 Homebrew formula 的 version / url / sha256，并可选提交。
+"""更新 Homebrew formula 的 version / url / sha256，并可选提交、推送。
 
 当上游默认分支有新 commit 且 HEAD 没有 semver tag 时，自动递增 patch 版本，
-通过 SSH 在上游仓库创建并推送 tag，再更新 formula。
+通过 SSH 在上游仓库创建并推送 tag，再更新 formula，最后提交并推送当前 tap 仓库。
 """
 
 from __future__ import annotations
@@ -368,7 +368,7 @@ def bump_one(
     return formula_file
 
 
-def git_commit(changed: list[Path], formulas: list[str]) -> None:
+def git_commit(changed: list[Path], formulas: list[str]) -> bool:
     rel_paths = [str(path.relative_to(ROOT)) for path in changed]
     diff = subprocess.run(
         ["git", "-C", str(ROOT), "diff", "--quiet", "--", *rel_paths],
@@ -376,7 +376,7 @@ def git_commit(changed: list[Path], formulas: list[str]) -> None:
     )
     if diff.returncode == 0:
         log("没有变更，跳过提交")
-        return
+        return False
 
     subprocess.run(["git", "-C", str(ROOT), "add", "--", *rel_paths], check=True)
 
@@ -388,6 +388,12 @@ def git_commit(changed: list[Path], formulas: list[str]) -> None:
 
     subprocess.run(["git", "-C", str(ROOT), "commit", "-m", msg], check=True)
     log(f"已提交: {msg}")
+    return True
+
+
+def git_push() -> None:
+    run(["git", "-C", str(ROOT), "push"])
+    log("已推送到远程")
 
 
 def main() -> None:
@@ -406,6 +412,7 @@ def main() -> None:
     parser.add_argument("--version", help="指定 formula 版本")
     parser.add_argument("--ref", help="指定 git tag 或 commit（跳过自动打 tag）")
     parser.add_argument("--no-commit", action="store_true", help="不创建 git commit")
+    parser.add_argument("--no-push", action="store_true", help="不推送当前仓库到远程")
     parser.add_argument("--no-tag-push", action="store_true", help="不向上游推送 tag")
     parser.add_argument("--dry-run", action="store_true", help="预览变更，不写文件、不推送 tag")
     args = parser.parse_args()
@@ -434,7 +441,8 @@ def main() -> None:
     if args.dry_run or args.no_commit:
         return
 
-    git_commit(changed, formulas)
+    if git_commit(changed, formulas) and not args.no_push:
+        git_push()
 
 
 if __name__ == "__main__":
